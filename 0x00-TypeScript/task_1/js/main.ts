@@ -41,7 +41,8 @@ interface StudentConstructor {
   new (firstName: string, lastName: string): Student;
 }
 
-const StudentClass: StudentConstructor = class StudentClass implements Student {
+/* eslint-disable @typescript-eslint/no-unused-vars */
+export class StudentClass implements Student {
   firstName: string;
   lastName: string;
 
@@ -57,4 +58,4 @@ const StudentClass: StudentConstructor = class StudentClass implements Student {
   displayName(): string {
     return this.firstName;
   }
-};
+}

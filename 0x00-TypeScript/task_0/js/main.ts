@@ -1,4 +1,4 @@
-/* Setup interface */
+// Studen interface
 
 interface Student {
   firstName: string;
@@ -7,52 +7,55 @@ interface Student {
   location: string;
 }
 
-/* Setup student objects */
+// Create objects
 
 const student1: Student = {
-  firstName: 'Frodo',
-  lastName: 'Baggins',
-  age: 23,
-  location: 'The Shire',
+  firstName: 'Holberton',
+  lastName: 'School',
+  age: 0,
+  location: 'idk',
 };
 
 const student2: Student = {
-  firstName: 'Bilbo',
-  lastName: 'Baggins',
-  age: 44,
-  location: 'The Shire',
+  firstName: 'School',
+  lastName: 'School',
+  age: 0,
+  location: 'idk',
 };
 
-const arr: Student[] = [];
-arr.push(student1);
-arr.push(student2);
+// Create two students, and create an array named studentsList containing the two variables
+const studentsList: Student[] = [];
+studentsList.push(student1);
+studentsList.push(student2);
 
-/* Manipulate DOM */
+// Using Vanilla Javascript, render a table and for each elements in the array, append a new row to the table
 
-const body: HTMLElement = document.body;
+const body: HTMLBodyElement = document.getElementsByTagName('body')[0];
 const table: HTMLTableElement = document.createElement('table');
+const thead: HTMLTableSectionElement = document.createElement('thead');
 const tbody: HTMLTableSectionElement = document.createElement('tbody');
+const tr: HTMLTableRowElement = document.createElement('tr');
+const th1: HTMLTableCellElement = document.createElement('td');
+th1.innerHTML = 'firstName';
+const th2: HTMLTableCellElement = document.createElement('td');
+th2.innerHTML = 'location';
 
-table.innerHTML = `
-  <thead>
-    <tr>
-      <th colspan="2">Students</th>
-    </tr>
-  </thead>`;
+body.append(table);
+table.append(thead);
+table.append(tbody);
+thead.append(tr);
+tr.append(th1);
+tr.append(th2);
 
-body.appendChild(table);
-table.appendChild(tbody);
+studentsList.forEach(({ firstName, location }: Student) => {
+  const trTb: HTMLTableRowElement = document.createElement('tr');
+  tbody.append(trTb);
 
-arr.forEach(({ firstName, location }: Student) => {
-  const tr: HTMLTableRowElement = document.createElement('tr');
-  const nameCell: HTMLTableDataCellElement = document.createElement('td');
-  const locationCell: HTMLTableCellElement = document.createElement('td');
+  let td: HTMLTableCellElement = document.createElement('td');
+  td.innerHTML = firstName;
+  trTb.append(td);
 
-  nameCell.textContent = firstName;
-  locationCell.textContent = location;
-
-  tr.appendChild(nameCell);
-  tr.appendChild(locationCell);
-
-  tbody.appendChild(tr);
+  td = document.createElement('td');
+  td.innerHTML = location;
+  trTb.append(td);
 });

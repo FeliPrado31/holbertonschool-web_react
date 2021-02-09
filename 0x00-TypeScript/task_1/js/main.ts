@@ -14,3 +14,16 @@ interface Teacher {
 interface Directors extends Teacher {
   numberOfReports: number;
 }
+
+// Task 3
+/* eslint-disable @typescript-eslint/class-name-casing */
+interface printTeacherFunction {
+  (firstName: string, lastName: string): string;
+}
+
+const printTeacher: printTeacherFunction = (
+  firstName: string,
+  lastName: string
+): string => {
+  return `${firstName[0]}. ${lastName}`;
+};

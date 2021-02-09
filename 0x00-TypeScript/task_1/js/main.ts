@@ -4,33 +4,41 @@ interface Teacher {
   fullTimeEmployee: boolean;
   yearsOfExperience?: number;
   location: string;
+  /* eslint-disable @typescript-eslint/no-explicit-any */
   [propName: string]: any;
+  /* eslint-enable @typescript-eslint/no-explicit-any */
 }
 
 interface Directors extends Teacher {
   numberOfReports: number;
 }
 
+/* eslint-disable @typescript-eslint/class-name-casing */
 interface printTeacherFunction {
   (firstName: string, lastName: string): string;
 }
 
-const printTeacher: printTeacherFunction = (
+/* eslint-enable @typescript-eslint/class-name-casing */
+export const printTeacher: printTeacherFunction = function (
   firstName: string,
   lastName: string
-): string => {
-  const firstInitial: string = firstName.charAt(0);
-  return `${firstInitial}. ${lastName}`;
+): string {
+  return `${firstName.charAt(0)}. ${lastName}`;
 };
 
-interface StudentClass {
-  firstName: string;
-  lastName: string;
+interface StudentConstructor {
+  new (firstName: string, lastName: string): StudentClassInterface;
+}
+
+interface StudentClassInterface {
   workOnHomework(): string;
   displayName(): string;
 }
 
-class StudentClass {
+export class StudentClass implements StudentClassInterface {
+  firstName: string;
+  lastName: string;
+
   constructor(firstName: string, lastName: string) {
     this.firstName = firstName;
     this.lastName = lastName;

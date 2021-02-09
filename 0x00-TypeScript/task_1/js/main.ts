@@ -9,3 +9,8 @@ interface Teacher {
   [propName: string]: any;
   /* eslint-enable @typescript-eslint/no-explicit-any */
 }
+
+// Task 2
+interface Directors extends Teacher {
+  numberOfReports: number;
+}

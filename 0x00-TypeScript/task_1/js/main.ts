@@ -30,22 +30,14 @@ export const printTeacher: printTeacherFunction = printFullName;
 
 // task 4
 
-interface Student {
+interface StudentClass {
   firstName: string;
   lastName: string;
   workOnHomework(): string;
   displayName(): string;
 }
 
-interface StudentConstructor {
-  new (firstName: string, lastName: string): Student;
-}
-
-/* eslint-disable @typescript-eslint/no-unused-vars */
-export class StudentClass implements Student {
-  firstName: string;
-  lastName: string;
-
+class StudentClass {
   constructor(firstName: string, lastName: string) {
     this.firstName = firstName;
     this.lastName = lastName;
@@ -59,7 +51,3 @@ export class StudentClass implements Student {
     return this.firstName;
   }
 }
-
-const student = new StudentClass('Jhon', 'Doe');
-console.log(student.workOnHomework());
-console.log(student.displayName());

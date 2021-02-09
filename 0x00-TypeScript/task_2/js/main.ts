@@ -1,5 +1,6 @@
-// task 5
+/* eslint-disable @typescript-eslint/no-unused-vars */
 
+/* Task 5 */
 interface DirectorInterface {
   workFromHome(): string;
   getCoffeeBreak(): string;
@@ -14,17 +15,14 @@ interface TeacherInterface {
 
 export class Director implements DirectorInterface {
   workFromHome(): string {
-    console.log('Working from home');
     return 'Working from home';
   }
 
   getCoffeeBreak(): string {
-    console.log('Getting a coffee break');
     return 'Getting a coffee break';
   }
 
   workDirectorTasks(): string {
-    console.log('Getting to director tasks');
     return 'Getting to director tasks';
   }
 }
@@ -33,21 +31,22 @@ export class Teacher implements TeacherInterface {
   workFromHome(): string {
     return 'Cannot work from home';
   }
+
   getCoffeeBreak(): string {
     return 'Cannot have a break';
   }
+
   workTeacherTasks(): string {
     return 'Getting to work';
   }
 }
 
-export function createEmployee(salary: number | string): Teacher | Director {
+export function createEmployee(salary: number | string): Director | Teacher {
   if (typeof salary === 'number' && salary < 500) return new Teacher();
-
   return new Director();
 }
 
-// task 6
+/* Task 6 */
 export function isDirector(
   employee: DirectorInterface | TeacherInterface
 ): employee is Director {

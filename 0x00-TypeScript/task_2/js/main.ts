@@ -64,3 +64,15 @@ export function executeWork(
   console.log(employee.workTeacherTasks());
   return employee.workTeacherTasks();
 }
+
+// Task 7
+
+type Subjects = 'Math' | 'History';
+
+export function teachClass(todayClass: Subjects): string {
+  if (todayClass === 'Math') {
+    return 'Teaching Math';
+  } else if (todayClass === 'History') {
+    return 'Teaching History';
+  }
+}

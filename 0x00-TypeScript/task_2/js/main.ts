@@ -65,5 +65,6 @@ export function executeWork(
     msg = employee.workTeacherTasks();
   }
 
+  console.log(msg);
   return msg;
 }

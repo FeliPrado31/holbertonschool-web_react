@@ -21,7 +21,9 @@ interface printTeacherFunction {
   (firstName: string, lastName: string): string;
 }
 
-const printTeacher: printTeacherFunction = (
-  firstName: string,
-  lastName: string
-): string => `${firstName.charAt(0)}. ${lastName}`;
+function printFullName(firstName: string, lastName: string): string {
+  return `${firstName.charAt(0)}. ${lastName}`;
+}
+
+export const printTeacher: printTeacherFunction = printFullName;
+/* eslint-enable @typescript-eslint/class-name-casing */

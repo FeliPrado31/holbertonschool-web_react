@@ -59,3 +59,7 @@ export class StudentClass implements Student {
     return this.firstName;
   }
 }
+
+const student = new StudentClass('Jhon', 'Doe');
+console.log(student.workOnHomework());
+console.log(student.displayName());

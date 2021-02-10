@@ -80,7 +80,7 @@ typings/
 
 # Nuxt.js build / generate output
 .nuxt
-dist
+# dist
 
 # Gatsby files
 .cache/
@@ -102,3 +102,7 @@ dist
 
 # TernJS port file
 .tern-port
+0x00-TypeScript/task_0/dist/bundle.js
+0x00-TypeScript/task_0/dist/index.html
+0x00-TypeScript/task_1/dist/bundle.js
+0x00-TypeScript/task_1/dist/index.html

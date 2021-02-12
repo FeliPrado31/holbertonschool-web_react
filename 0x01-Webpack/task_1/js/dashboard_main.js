@@ -18,13 +18,13 @@ p4.innerHTML = 'Copyright - Holberton School';
 
 body.append(p1, p2, button, p3, p4);
 
+// js
+
 let count = 0;
 
-const updateCounter = () => (count += 1);
-
-const buttonOnClick = () => {
-  const count = updateCounter();
+const updateCounter = () => {
+  count++;
   $('#count').text(`${count} clicks on the button`);
 };
 
-$('button').on('click', debounce(buttonOnClick));
+$('button').on('click', debounce(updateCounter));

@@ -1,6 +1,5 @@
 import './App.css';
 import logo from './logo.jpg';
-import { getFullYear, getFooterCopy } from './utils';
 
 function App() {
   return (

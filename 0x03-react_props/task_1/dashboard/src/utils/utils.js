@@ -8,7 +8,7 @@ export function getFooterCopy(isIndex) {
   if (isIndex) {
     msg = 'Holberton School';
   } else {
-    msg = 'Holberton School main dashboard';
+    msg = 'Holberton School Main Dashboard';
   }
 
   return msg;

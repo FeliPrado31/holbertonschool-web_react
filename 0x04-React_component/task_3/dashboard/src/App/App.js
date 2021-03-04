@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import BodySection from '../BodySection/BodySection';
+import BodySectionWithMarginBottom from '../BodySection/BodySectionWithMarginBottom';
 import Notifications from '../Notifications/Notifications';
 import Header from '../Header/Header';
 import Login from '../Login/Login';
@@ -25,10 +27,10 @@ const listNotifications = [
 class App extends Component {
   constructor(props) {
     super(props);
-    this.onLogoutFunction = this.onLogoutFunction.bind(this);
+    this.handleKeyCombination = this.handleKeyCombination.bind(this);
   }
 
-  onLogoutFunction(e) {
+  handleKeyCombination(e) {
     if (e.key === 'h' && e.ctrlKey) {
       alert('Logging you out');
       this.props.logOut();
@@ -36,11 +38,11 @@ class App extends Component {
   }
 
   componentDidMount() {
-    document.addEventListener('keydown', this.onLogoutFunction);
+    document.addEventListener('keydown', this.handleKeyCombination);
   }
 
   componentWillUnmount() {
-    document.removeEventListener('keydown', this.onLogoutFunction);
+    document.removeEventListener('keydown', this.handleKeyCombination);
   }
 
   render() {
@@ -52,8 +54,20 @@ class App extends Component {
           <Header />
         </div>
         <div className='App-body'>
-          {!isLoggedIn ? <Login /> : <CourseList listCourses={listCourses} />}
+          {!isLoggedIn ? (
+            <BodySectionWithMarginBottom title='Log in to continue'>
+              <Login />
+            </BodySectionWithMarginBottom>
+          ) : (
+            <BodySectionWithMarginBottom title='Course list'>
+              <CourseList listCourses={listCourses} />
+            </BodySectionWithMarginBottom>
+          )}
         </div>
+        <BodySection title='News from the School'>
+          <p>Some Random Text</p>
+        </BodySection>
+
         <div className='App-footer'>
           <Footer />
         </div>

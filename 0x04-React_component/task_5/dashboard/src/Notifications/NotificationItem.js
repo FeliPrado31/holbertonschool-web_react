@@ -1,5 +1,5 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
 const NotificationItem = ({ type, value, html, markAsRead, id }) =>
   value ? (
@@ -15,8 +15,8 @@ const NotificationItem = ({ type, value, html, markAsRead, id }) =>
   );
 
 NotificationItem.defaultProps = {
-  type: 'default',
-  value: '',
+  type: "default",
+  value: "",
   html: {},
   markAsRead: () => {},
   id: NaN,

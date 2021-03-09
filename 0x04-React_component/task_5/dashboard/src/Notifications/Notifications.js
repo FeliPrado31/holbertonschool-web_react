@@ -1,16 +1,20 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-
-import NotificationItem from './NotificationItem';
-import NotificationItemShape from './NotificationItemShape';
-
-import './Notifications.css';
-import closeIcon from '../assets/close-icon.png';
+import React, { Component } from "react";
+import NotificationItem from "./NotificationItem";
+import PropTypes from "prop-types";
+import NotificationItemShape from "./NotificationItemShape";
+import "./Notifications.css";
+import closeIcon from "../assets/close-icon.png";
 
 class Notifications extends Component {
   constructor(props) {
     super(props);
     this.markAsRead = this.markAsRead.bind(this);
+  }
+
+  shouldComponentUpdate(nextProps) {
+    return (
+      nextProps.listNotifications.length > this.props.listNotifications.length
+    );
   }
 
   markAsRead(id) {
@@ -21,26 +25,26 @@ class Notifications extends Component {
     const { displayDrawer, listNotifications } = this.props;
     return (
       <>
-        <div className='menuItem'>
+        <div className="menuItem">
           <p>Your notifications</p>
         </div>
         {displayDrawer && (
-          <div className='Notifications'>
+          <div className="Notifications">
             <button
               style={{
-                background: 'transparent',
-                border: 'none',
-                position: 'absolute',
+                background: "transparent",
+                border: "none",
+                position: "absolute",
                 right: 20,
               }}
-              aria-label='close'
+              aria-label="close"
             >
-              <img src={closeIcon} alt='close-icon' />
+              <img src={closeIcon} alt="close-icon" />
             </button>
             <p>Here is the list of notifications</p>
             <ul>
               {listNotifications.length === 0 && (
-                <NotificationItem value='No new notification for now' />
+                <NotificationItem value="No new notification for now" />
               )}
 
               {listNotifications.map((notification) => (
@@ -70,4 +74,5 @@ Notifications.propTypes = {
   displayDrawer: PropTypes.bool,
   listNotifications: PropTypes.arrayOf(NotificationItemShape),
 };
+
 export default Notifications;

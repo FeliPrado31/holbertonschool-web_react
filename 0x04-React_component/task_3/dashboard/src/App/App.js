@@ -1,27 +1,25 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-
-import BodySection from '../BodySection/BodySection';
-import BodySectionWithMarginBottom from '../BodySection/BodySectionWithMarginBottom';
-import Notifications from '../Notifications/Notifications';
-import Header from '../Header/Header';
-import Login from '../Login/Login';
-import CourseList from '../CourseList/CourseList';
-import Footer from '../Footer/Footer';
-
-import './App.css';
-import { getLatestNotification } from '../utils/utils';
+import React, { Component } from "react";
+import Notifications from "../Notifications/Notifications";
+import Header from "../Header/Header";
+import BodySection from "../BodySection/BodySection";
+import BodySectionWithMarginBottom from "../BodySection/BodySectionWithMarginBottom";
+import Login from "../Login/Login";
+import CourseList from "../CourseList/CourseList";
+import Footer from "../Footer/Footer";
+import PropTypes from "prop-types";
+import { getLatestNotification } from "../utils/utils";
+import "./App.css";
 
 const listCourses = [
-  { id: 1, name: 'ES6', credit: 60 },
-  { id: 2, name: 'Webpack', credit: 20 },
-  { id: 3, name: 'React', credit: 40 },
+  { id: 1, name: "ES6", credit: 60 },
+  { id: 2, name: "Webpack", credit: 20 },
+  { id: 3, name: "React", credit: 40 },
 ];
 
 const listNotifications = [
-  { id: 1, type: 'default', value: 'New course available' },
-  { id: 2, type: 'urgent', value: 'New resume available' },
-  { id: 3, type: 'urgent', html: { __html: getLatestNotification() } },
+  { id: 1, type: "default", value: "New course available" },
+  { id: 2, type: "urgent", value: "New resume available" },
+  { id: 3, type: "urgent", html: { __html: getLatestNotification() } },
 ];
 
 class App extends Component {
@@ -31,18 +29,18 @@ class App extends Component {
   }
 
   handleKeyCombination(e) {
-    if (e.key === 'h' && e.ctrlKey) {
-      alert('Logging you out');
+    if (e.key === "h" && e.ctrlKey) {
+      alert("Logging you out");
       this.props.logOut();
     }
   }
 
   componentDidMount() {
-    document.addEventListener('keydown', this.handleKeyCombination);
+    document.addEventListener("keydown", this.handleKeyCombination);
   }
 
   componentWillUnmount() {
-    document.removeEventListener('keydown', this.handleKeyCombination);
+    document.removeEventListener("keydown", this.handleKeyCombination);
   }
 
   render() {
@@ -50,25 +48,25 @@ class App extends Component {
     return (
       <>
         <Notifications listNotifications={listNotifications} />
-        <div className='App'>
+        <div className="App">
           <Header />
         </div>
-        <div className='App-body'>
+        <div className="App-body">
           {!isLoggedIn ? (
-            <BodySectionWithMarginBottom title='Log in to continue'>
+            <BodySectionWithMarginBottom title="Log in to continue">
               <Login />
             </BodySectionWithMarginBottom>
           ) : (
-            <BodySectionWithMarginBottom title='Course list'>
+            <BodySectionWithMarginBottom title="Course list">
               <CourseList listCourses={listCourses} />
             </BodySectionWithMarginBottom>
           )}
         </div>
-        <BodySection title='News from the School'>
+        <BodySection title="News from the School">
           <p>Some Random Text</p>
         </BodySection>
 
-        <div className='App-footer'>
+        <div className="App-footer">
           <Footer />
         </div>
       </>

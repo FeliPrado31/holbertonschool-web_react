@@ -1,22 +1,31 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
-const NotificationItem = ({ type, value, html, markAsRead, id }) =>
-  value ? (
-    <li data-notification-type={type} onClick={() => markAsRead(id)}>
-      {value}
-    </li>
-  ) : (
-    <li
-      data-notification-type={type}
-      dangerouslySetInnerHTML={html}
-      onClick={() => markAsRead(id)}
-    ></li>
-  );
+function NotificationItem({ type, value, html, markAsRead, id }) {
+  let listItem;
+
+  if (value) {
+    listItem = (
+      <li data-notification-type={type} onClick={() => markAsRead(id)}>
+        {value}
+      </li>
+    );
+  } else {
+    listItem = (
+      <li
+        data-notification-type={type}
+        dangerouslySetInnerHTML={html}
+        onClick={() => markAsRead(id)}
+      ></li>
+    );
+  }
+
+  return listItem;
+}
 
 NotificationItem.defaultProps = {
-  type: 'default',
-  value: '',
+  type: "default",
+  value: "",
   html: {},
   markAsRead: () => {},
   id: NaN,

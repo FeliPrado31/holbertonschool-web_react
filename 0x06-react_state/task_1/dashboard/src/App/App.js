@@ -109,7 +109,7 @@ class App extends Component {
 
 App.defaultProps = {
   isLoggedIn: false,
-  logOut: () => { },
+  logOut: () => {},
 };
 
 App.propTypes = {
@@ -117,7 +117,7 @@ App.propTypes = {
   logOut: PropTypes.func,
 };
 
-const rootVars = {
+const cssVars = {
   mainColor: "#e01d3f",
 };
 
@@ -133,7 +133,7 @@ const styles = StyleSheet.create({
   },
 
   app: {
-    borderBottom: `3px solid ${rootVars.mainColor}`,
+    borderBottom: `3px solid ${cssVars.mainColor}`,
   },
 
   appBody: {
@@ -142,7 +142,7 @@ const styles = StyleSheet.create({
   },
 
   footer: {
-    borderTop: `3px solid ${rootVars.mainColor}`,
+    borderTop: `3px solid ${cssVars.mainColor}`,
     width: "100%",
     display: "flex",
     justifyContent: "center",

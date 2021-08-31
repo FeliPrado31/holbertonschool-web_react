@@ -11,7 +11,7 @@ function Header() {
   );
 }
 
-const rootVars = {
+const cssVars = {
   mainColor: "#e01d3f",
 };
 
@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
   header: {
     display: "flex",
     alignItems: "center",
-    color: rootVars.mainColor,
+    color: cssVars.mainColor,
     fontSize: "20px",
   },
 

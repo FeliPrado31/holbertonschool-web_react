@@ -24,12 +24,8 @@ class Login extends Component {
     const { value } = event.target;
     const { password } = this.state;
 
-    if (value !== "" && password !== "") {
-      this.setState({ enableSubmit: true });
-    }
-    else {
-      this.setState({ enableSubmit: false });
-    }
+    if (value !== "" && password !== "") this.setState({ enableSubmit: true });
+    else this.setState({ enableSubmit: false });
 
     this.setState({ email: event.target.value });
   }
@@ -38,12 +34,8 @@ class Login extends Component {
     const { value } = event.target;
     const { email } = this.state;
 
-    if (email !== "" && value !== "") {
-      this.setState({ enableSubmit: true });
-    }
-    else {
-      this.setState({ enableSubmit: false });
-    }
+    if (email !== "" && value !== "") this.setState({ enableSubmit: true });
+    else this.setState({ enableSubmit: false });
 
     this.setState({ password: event.target.value });
   }

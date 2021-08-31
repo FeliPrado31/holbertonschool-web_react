@@ -87,6 +87,7 @@ describe("<App />", () => {
     const wrapper = shallow(<App />);
     expect(wrapper.state().displayDrawer).toEqual(false);
 
+    // const instance = wrapper.instance();
 
     wrapper.instance().handleDisplayDrawer();
 

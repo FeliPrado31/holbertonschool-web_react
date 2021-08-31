@@ -57,14 +57,14 @@ CourseListRow.propTypes = {
   textSecondCell: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
 
-const rootVars = {
+const cssVars = {
   borderTableColor: "rgb(170, 170, 170);",
 };
 
 const styles = StyleSheet.create({
   CourseListTh: {
-    borderTop: `1px solid ${rootVars.borderTableColor}`,
-    borderBottom: `1px solid ${rootVars.borderTableColor}`,
+    borderTop: `1px solid ${cssVars.borderTableColor}`,
+    borderBottom: `1px solid ${cssVars.borderTableColor}`,
     textAlign: "left",
     fontSize: "18px",
   },

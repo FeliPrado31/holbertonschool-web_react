@@ -1,7 +1,4 @@
 import React, { Component } from "react";
-import { StyleSheet, css } from "aphrodite";
-
-
 import Notifications from "../Notifications/Notifications";
 import Header from "../Header/Header";
 import BodySection from "../BodySection/BodySection";
@@ -9,9 +6,11 @@ import BodySectionWithMarginBottom from "../BodySection/BodySectionWithMarginBot
 import Login from "../Login/Login";
 import CourseList from "../CourseList/CourseList";
 import Footer from "../Footer/Footer";
-
+import PropTypes from "prop-types";
 import { getLatestNotification } from "../utils/utils";
-import AppContext, { user, logOut } from "./AppContext";
+import { StyleSheet, css } from "aphrodite";
+import { user, logOut } from "./AppContext";
+import AppContext from "./AppContext";
 
 const listCourses = [
   { id: 1, name: "ES6", credit: 60 },
@@ -152,7 +151,7 @@ App.defaultProps = {};
 
 App.propTypes = {};
 
-const rootVars = {
+const cssVars = {
   mainColor: "#e01d3f",
 };
 
@@ -168,7 +167,7 @@ const styles = StyleSheet.create({
   },
 
   app: {
-    borderBottom: `3px solid ${rootVars.mainColor}`,
+    borderBottom: `3px solid ${cssVars.mainColor}`,
   },
 
   appBody: {
@@ -177,7 +176,7 @@ const styles = StyleSheet.create({
   },
 
   footer: {
-    borderTop: `3px solid ${rootVars.mainColor}`,
+    borderTop: `3px solid ${cssVars.mainColor}`,
     width: "100%",
     display: "flex",
     justifyContent: "center",

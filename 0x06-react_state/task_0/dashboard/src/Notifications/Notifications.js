@@ -14,7 +14,7 @@ class Notifications extends Component {
   shouldComponentUpdate(nextProps) {
     return (
       nextProps.listNotifications.length >
-      this.props.listNotifications.length ||
+        this.props.listNotifications.length ||
       nextProps.displayDrawer !== this.props.displayDrawer
     );
   }
@@ -92,8 +92,8 @@ class Notifications extends Component {
 Notifications.defaultProps = {
   displayDrawer: false,
   listNotifications: [],
-  handleDisplayDrawer: () => { },
-  handleHideDrawer: () => { },
+  handleDisplayDrawer: () => {},
+  handleHideDrawer: () => {},
 };
 
 Notifications.propTypes = {
@@ -103,7 +103,7 @@ Notifications.propTypes = {
   handleHideDrawer: PropTypes.func,
 };
 
-const rootVars = {
+const cssVars = {
   mainColor: "#e01d3f",
 };
 
@@ -145,7 +145,7 @@ const borderKeyframes = {
   },
 
   "100%": {
-    border: `3px dashed ${rootVars.mainColor}`,
+    border: `3px dashed ${cssVars.mainColor}`,
   },
 };
 
@@ -172,7 +172,7 @@ const styles = StyleSheet.create({
 
   notifications: {
     float: "right",
-    // border: `3px dashed ${rootVars.mainColor}`,
+    // border: `3px dashed ${cssVars.mainColor}`,
     padding: "10px",
     marginBottom: "20px",
     animationName: [borderKeyframes],

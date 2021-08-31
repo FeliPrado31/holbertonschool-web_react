@@ -96,9 +96,9 @@ class Notifications extends PureComponent {
 Notifications.defaultProps = {
   displayDrawer: false,
   listNotifications: [],
-  handleDisplayDrawer: () => { },
-  handleHideDrawer: () => { },
-  markNotificationAsRead: () => { },
+  handleDisplayDrawer: () => {},
+  handleHideDrawer: () => {},
+  markNotificationAsRead: () => {},
 };
 
 Notifications.propTypes = {
@@ -109,7 +109,7 @@ Notifications.propTypes = {
   markNotificationAsRead: PropTypes.func,
 };
 
-const rootVars = {
+const cssVars = {
   mainColor: "#e01d3f",
 };
 
@@ -151,7 +151,7 @@ const borderKeyframes = {
   },
 
   "100%": {
-    border: `3px dashed ${rootVars.mainColor}`,
+    border: `3px dashed ${cssVars.mainColor}`,
   },
 };
 
@@ -178,7 +178,7 @@ const styles = StyleSheet.create({
 
   notifications: {
     float: "right",
-    // border: `3px dashed ${rootVars.mainColor}`,
+    // border: `3px dashed ${cssVars.mainColor}`,
     padding: "10px",
     marginBottom: "20px",
     animationName: [borderKeyframes],
